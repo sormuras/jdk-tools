@@ -15,7 +15,7 @@ so that users are enabled to build Java projects more easily.
 
 ## Outline
 
-This session starts with an overview of 28+ tools shipping with JDK 18.
+This session starts with an overview of 28+ tools shipping with JDK 19.
 
 After a short break (reading all linked man pages takes time),
 a few tools are executed live on the command-line in order to
@@ -37,13 +37,13 @@ Three abstractions are introduced along the way:
 
 ## Tools, Options, Examples
 
-[JDK 18 Documentation](https://docs.oracle.com/en/java/javase/18/)
+[JDK 19 Documentation](https://docs.oracle.com/en/java/javase/19/)
 
-[Java® Platform, Standard Edition & Java Development Kit Specifications Version 18](https://docs.oracle.com/en/java/javase/18/docs/specs)
+[Java® Platform, Standard Edition & Java Development Kit Specifications Version 19](https://docs.oracle.com/en/java/javase/19/docs/specs)
 
-[Java® Development Kit Version 18 Tool Specifications](https://docs.oracle.com/en/java/javase/18/docs/specs/man)
+[Java® Development Kit Version 19 Tool Specifications](https://docs.oracle.com/en/java/javase/19/docs/specs/man)
 
-### Java Development Kit Version 18 Tool Specifications
+### Java Development Kit Version 19 Tool Specifications
 
 **All Platforms**
 
@@ -166,21 +166,21 @@ Three time's a charm, one call per module.
 ```shell
 jar
   --create
-  --file .bach/out/org.example.jar
+  --file .bach/out/modules/org.example.jar
   -C .bach/out/classes/org.example .
 ```
 
 ```shell
 jar
   --create
-  --file .bach/out/org.example.app.jar
+  --file .bach/out/modules/org.example.app.jar
   -C .bach/out/classes/org.example.app .
 ```
 
 ```shell
 jar
   --create
-  --file .bach/out/org.example.lib.jar
+  --file .bach/out/modules/org.example.lib.jar
   -C .bach/out/classes/org.example.lib .
 ```
 
@@ -192,7 +192,7 @@ Here, create a modular JAR file named `org.example[.[app|lib]].jar`.
 jlink
   --verbose
   --output .bach/out/image
-  --module-path .bach/out
+  --module-path .bach/out/modules
   --add-modules org.example
   --launcher example=org.example.app/org.example.app.Main
 ```
@@ -374,7 +374,7 @@ _Want to see more?_
 ## Talk-Related Links
 
 * JDK Tool Specifications
-  <https://docs.oracle.com/en/java/javase/18/docs/specs/man>
+  <https://docs.oracle.com/en/java/javase/19/docs/specs/man>
 * Project Jigsaw: Module System Quick-Start Guide
   <https://openjdk.java.net/projects/jigsaw/quick-start>
 * Bach - Java Shell Builder - Builds (on(ly)) Modules
