@@ -9,7 +9,7 @@ void jpackage(String... args) { run("jpackage", args); }
 
 void javap(Class<?> type) throws Exception {
     var loader = type.getClassLoader();
-    if ("jdk.jshell".equals(loader.getClass().getModule().getName())) {
+    if (loader != null && "jdk.jshell".equals(loader.getClass().getModule().getName())) {
         var temp = java.nio.file.Files.createTempFile("TOOLING-", ".class");
         try {
             var name = type.getName().replace('.', '/') + ".class";
