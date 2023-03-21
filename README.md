@@ -283,7 +283,7 @@ java src/Tool2.java --list-tools
 
 ```text
 // HINT:
-// [x] Run: java --limit-modules java.base demo/Tool2.java
+// [x] Run: java --limit-modules java.base src/Tool2.java
 
 // NEXT:
 //  ?  Run: java src/Tool2.java banner hello world
