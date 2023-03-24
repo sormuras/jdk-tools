@@ -15,7 +15,7 @@ so that users are enabled to build Java projects more easily.
 
 ## Outline
 
-This session starts with an overview of 28+ tools shipping with JDK 19.
+This session starts with an overview of 28+ tools shipping with JDK 20.
 
 After a short break (reading all linked man pages takes time),
 a few tools are executed live on the command-line in order to
@@ -37,13 +37,13 @@ Three abstractions are introduced along the way:
 
 ## Tools, Options, Examples
 
-[JDK 19 Documentation](https://docs.oracle.com/en/java/javase/19/)
+[JDK 20 Documentation](https://docs.oracle.com/en/java/javase/20/)
 
-[Java® Platform, Standard Edition & Java Development Kit Specifications Version 19](https://docs.oracle.com/en/java/javase/19/docs/specs)
+[Java® Platform, Standard Edition & Java Development Kit Specifications Version 20](https://docs.oracle.com/en/java/javase/20/docs/specs)
 
-[Java® Development Kit Version 19 Tool Specifications](https://docs.oracle.com/en/java/javase/19/docs/specs/man)
+[Java® Development Kit Version 20 Tool Specifications](https://docs.oracle.com/en/java/javase/20/docs/specs/man)
 
-### Java Development Kit Version 19 Tool Specifications
+### Java Development Kit Version 20 Tool Specifications
 
 **All Platforms**
 
@@ -374,7 +374,7 @@ _Want to see more?_
 ## Talk-Related Links
 
 * JDK Tool Specifications
-  <https://docs.oracle.com/en/java/javase/19/docs/specs/man>
+  <https://docs.oracle.com/en/java/javase/20/docs/specs/man>
 * Project Jigsaw: Module System Quick-Start Guide
   <https://openjdk.java.net/projects/jigsaw/quick-start>
 * Bach - Java Shell Builder - Builds (on(ly)) Modules
