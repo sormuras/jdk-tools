@@ -143,11 +143,11 @@ class Tool6 {
 
     public int run(ToolRunner runner, String... args) {
       var modules = List.of("org.example", "org.example.app", "org.example.lib");
-      var out = Path.of(".bach", "out");
+      var out = Path.of("out");
       runner.run(
           "javac",
           "-d",
-          ".bach/out/classes",
+          "out/classes",
           "--module-source-path=.",
           "--module=" + String.join(",", modules));
       modules.forEach(
@@ -173,8 +173,8 @@ class Tool6 {
       runner.run(
           "jlink",
           "--verbose",
-          "--output=.bach/out/image",
-          "--module-path=.bach/out",
+          "--output=out/image",
+          "--module-path=out",
           "--add-modules=org.example",
           "--launcher=example=org.example.app/org.example.app.Main");
       return 0;

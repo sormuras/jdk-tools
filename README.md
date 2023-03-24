@@ -120,7 +120,7 @@ Three abstractions are introduced along the way:
 javac
   --module org.example,org.example.app,org.example.lib
   --module-source-path .
-  -d .bach/out/classes
+  -d out/classes
 ```
 
 Here, compile 3 modules, namely...
@@ -130,7 +130,7 @@ Here, compile 3 modules, namely...
 - `org.example.lib`.
 
 Search source files in subdirectories of the current working directory `.`
-named like the modules, and store class files in `.bach/out/classes`,
+named like the modules, and store class files in `out/classes`,
 creating a subdirectory for each module
 
 ```text
@@ -166,22 +166,22 @@ Three time's a charm, one call per module.
 ```shell
 jar
   --create
-  --file .bach/out/modules/org.example.jar
-  -C .bach/out/classes/org.example .
+  --file out/modules/org.example.jar
+  -C out/classes/org.example .
 ```
 
 ```shell
 jar
   --create
-  --file .bach/out/modules/org.example.app.jar
-  -C .bach/out/classes/org.example.app .
+  --file out/modules/org.example.app.jar
+  -C out/classes/org.example.app .
 ```
 
 ```shell
 jar
   --create
-  --file .bach/out/modules/org.example.lib.jar
-  -C .bach/out/classes/org.example.lib .
+  --file out/modules/org.example.lib.jar
+  -C out/classes/org.example.lib .
 ```
 
 Here, create a modular JAR file named `org.example[.[app|lib]].jar`.
@@ -191,8 +191,8 @@ Here, create a modular JAR file named `org.example[.[app|lib]].jar`.
 ```shell
 jlink
   --verbose
-  --output .bach/out/image
-  --module-path .bach/out/modules
+  --output out/image
+  --module-path out/modules
   --add-modules org.example
   --launcher example=org.example.app/org.example.app.Main
 ```
@@ -201,12 +201,12 @@ jlink
 
 * Linux/Mac
   ```shell
-  .bach/out/image/bin/example
+  out/image/bin/example
   ```
 
 * Windows
   ```shell
-  .bach\out\image\bin\example
+  out\image\bin\example
   ```
 
 ## Seven Steps to Find, Load, and Run Tools
@@ -342,8 +342,6 @@ java src/Tool6.java chain compile link
 // Next step:
 // [ ] GOTO Tool.java
 //     More ToolFinder...
-// [ ] GOTO Bach.java
-//     project-info!
 ```
 
 ## `Tool.java`
@@ -367,18 +365,12 @@ Explore more tool finders:
 * `ToolFinder.of(ModuleFinder)` and `ToolFinder.of(ModuleLayer)`
     * Example: `of(ModuleFinder.of(Path.of("out", "modules")))`
 
-## `Bach.java`
-
-_Want to see more?_
-
 ## Talk-Related Links
 
 * JDK Tool Specifications
   <https://docs.oracle.com/en/java/javase/20/docs/specs/man>
 * Project Jigsaw: Module System Quick-Start Guide
   <https://openjdk.java.net/projects/jigsaw/quick-start>
-* Bach - Java Shell Builder - Builds (on(ly)) Modules
-  <https://github.com/sormuras/bach>
 
 ## More Tool-Related Links
 

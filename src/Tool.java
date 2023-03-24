@@ -164,7 +164,7 @@ class Tool {
     static ToolRunner of(ToolFinder finder) {
       return new ToolRunner() {
         public void run(String name, String... args) {
-          var thread = Thread.currentThread().getId();
+          var thread = Thread.currentThread().threadId();
           System.out.printf("|%2X| %s %s%n", thread, name, String.join(" ", args));
           var tool = finder.find(name).orElseThrow(() -> new NoSuchElementException(name));
           var code =
@@ -226,11 +226,11 @@ class Tool {
     @Override
     public int run(ToolRunner runner, String... args) {
       var modules = List.of("org.example", "org.example.app", "org.example.lib");
-      var out = Path.of(".bach", "out");
+      var out = Path.of("out");
       runner.run(
           "javac",
           "-d",
-          ".bach/out/classes",
+          "out/classes",
           "--module-source-path=.",
           "--module=" + String.join(",", modules));
       modules.stream()
@@ -257,8 +257,8 @@ class Tool {
     public int run(ToolRunner runner, String... args) {
       runner.run(
           "jlink",
-          "--output=.bach/out/image",
-          "--module-path=.bach/out",
+          "--output=out/image",
+          "--module-path=out",
           "--add-modules=org.example",
           "--launcher=example=org.example.app/org.example.app.Main");
       return 0;
@@ -274,7 +274,7 @@ class Tool {
     public int run(ToolRunner runner, String... args) {
       try {
         var java = new ArrayList<String>();
-        java.add(".bach/out/image/bin/java");
+        java.add("out/image/bin/java");
         java.add("--module=org.example.app/org.example.app.Main");
         java.addAll(List.of(args));
         return new ProcessBuilder(java).inheritIO().start().waitFor();
