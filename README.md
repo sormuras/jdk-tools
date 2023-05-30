@@ -157,6 +157,16 @@ creating a subdirectory for each module
                         EchoToolProvider.class
 ```
 
+### java (exploded modules)
+
+> Launch Java application
+
+```shell
+java
+  --module-path out/classes
+  --module org.example.app/org.example.app.Main
+```
+
 ### jar
 
 > Create an archive for classes and resources.
@@ -186,7 +196,19 @@ jar
 
 Here, create a modular JAR file named `org.example[.[app|lib]].jar`.
 
+### java (archived modules)
+
+> Launch Java application
+
+```shell
+java
+  --module-path out/modules
+  --module org.example.app/org.example.app.Main
+```
+
 ### jlink
+
+> Create custom runtime image
 
 ```shell
 jlink
@@ -197,7 +219,9 @@ jlink
   --launcher example=org.example.app/org.example.app.Main
 ```
 
-### java
+### java (custom launcher)
+
+> Launch Java application in a custom runtime image
 
 * Linux/Mac
   ```shell
